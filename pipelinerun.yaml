@@ -3,12 +3,13 @@ kind: PipelineRun
 metadata:
   generateName: clone-build-push-run-
 spec:
-  serviceAccountName: tekton-git
+
   pipelineRef:
     name: clone-build-push
   podTemplate:
     securityContext:
       fsGroup: 65532
+  serviceAccountName: tekton-git
   workspaces:
   - name: shared-data
     volumeClaimTemplate:

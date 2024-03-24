@@ -13,7 +13,6 @@ spec:
     type: string
   workspaces:
   - name: shared-data
-  serviceAccountName: tekton-git
   tasks:
   - name: fetch-source
     taskRef:
