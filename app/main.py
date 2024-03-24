@@ -32,7 +32,7 @@ def read_item(w: Union[str, None] = None):
     generator = torch.Generator(device="cuda").manual_seed(42) # usaremos una seed para que todos veamos la misma imagen
     prompt = w # descripción de la imagen a generar
     images = pipeline(prompt, generator=generator).images # generamos una imagen y retornamos los resultados
-    #media.show_images(images) # mostramos la imagen
+    #media.show_images(images) # mostramos la imagen (solo para Google Collab)
     img_byte_arr = io.BytesIO()
     images[0].save(img_byte_arr, format='JPEG')
     img_byte_arr = img_byte_arr.getvalue()
