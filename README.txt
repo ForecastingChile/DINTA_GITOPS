@@ -34,7 +34,12 @@
     9.- Ahora debería ser posible asociar la cuenta de servicio al pipeline.yaml
     10.- Antes de correr el pipeline, para hacer el git-clone hay que instalarlo usando el tkn (tkn hub install task git-clone)
     11.-Ejecutar el pipeline (kubectl apply -f pipeline.yaml)
-    12.-
-    13.-
-    14.-
-    15.-
+    12.-Ejecutar el pipeline run (tkn pipelinerun logs  clone-build-push-run-4kgjr -f) . El output es: pipelinerun.tekton.dev/clone-build-push-run-4kgjr created
+    13.-Después se puede usar el comando tkn pipelinerun logs  clone-build-push-run-4kgjr -f para hacer el monitoreo
+    14.-El seguimiento se hace a través del comando TKN.
+    15.-IMPORTANTE!!: Para la ejecución del pipeline es necesario tener la tarea KANIKO instalada (kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/kaniko/0.4/kaniko.yaml)
+    16.-
+    17.-
+    18.-
+    19.-
+    20.-
