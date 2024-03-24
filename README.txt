@@ -23,14 +23,18 @@
 
 ##Comandos Tekton para Construir y pushear una imagen:
 
-    1.- Hay que instalar el Tekton Pipelines: 
-        kubectl apply --filename \
-        https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+    1.- Hay que instalar el Tekton Pipelines: kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
     2.- Se requiere tener el CLI instalado en Windows.
     3.- Después de configurar el pipeline.yaml y el pipelinerun.yaml hay que configuruar el repositorio local de imaagenes con el siguiente comando (con almacenamiento persistente)
     4.- docker run -d -p 5000:5000 --restart=always --volume ~/.registry/storage:/var/lib/registry registry:2
     5.- Una vez que está creado el repo local la única forma de ver las imagenes pusheadas a este repo es con: curl -X GET http://localhost:5000/v2/_catalog
     6.- Para establecer la conexión y poder hacer pull del código se necesita un token de acceso a github (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)
-    7.- A continuación se crea el secreto en Kubernetes
-    8.-
-    9.- 
+    7.- A continuación se crea el secreto en Kubernetes - (kubectl create secret generic github-secret --from-literal=token=YOUR_PERSONAL_ACCESS_TOKEN)
+    8.- Se asocia el secreto a una cuenta de servicios y luego se referencia la cuenta de servicio en el pipeline (deploy del "kubectl apply -f serviceaccount.yaml")
+    9.- Ahora debería ser posible asociar la cuenta de servicio al pipeline.yaml
+    10.- Antes de correr el pipeline, para hacer el git-clone hay que instalarlo usando el tkn (tkn hub install task git-clone)
+    11.-Ejecutar el pipeline (kubectl apply -f pipeline.yaml)
+    12.-
+    13.-
+    14.-
+    15.-
