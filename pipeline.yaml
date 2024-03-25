@@ -33,3 +33,5 @@ spec:
     params:
     - name: IMAGE
       value: $(params.image-reference)
+    - name: INSECURE
+      value: "--insecure"
