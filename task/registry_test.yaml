@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: test-registry-connection-run
+spec:
+  taskSpec:
+    steps:
+      - name: curl
+        image: curlimages/curl
+        command: ["curl"]
+        args: ["-I", "http://localhost:5000/v2"]
