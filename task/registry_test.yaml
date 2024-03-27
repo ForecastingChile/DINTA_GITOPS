@@ -1,11 +1,11 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: test-registry-connection-run
+  name: tr
 spec:
   taskSpec:
     steps:
       - name: curl
         image: curlimages/curl
         command: ["curl"]
-        args: ["-I", "http://localhost:5000/v2"]
+        args: ["-I", "registry-service.default.svc.cluster.local:5000/v2/_catalog"]

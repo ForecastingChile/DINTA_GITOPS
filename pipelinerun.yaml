@@ -22,4 +22,4 @@ spec:
   - name: repo-url
     value: https://github.com/ForecastingChile/DINTA_GITOPS.git
   - name: image-reference
-    value: localhost:30670/v2/my_app:latest
+    value: registry-service.default.svc.cluster.local:5000/my_app:latest

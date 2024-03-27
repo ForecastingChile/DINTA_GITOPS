@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: curl-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: curl-container
+  template:
+    metadata:
+      labels:
+        app: curl-container
+    spec:
+      containers:
+      - name: curl-container
+        image: curlimages/curl
+        command: ["curl"]
+        args: ["registry-service.default.svc.cluster.local:5000/v2/_catalog"]

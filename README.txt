@@ -25,7 +25,7 @@
 
     1.- Hay que instalar el Tekton Pipelines: kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
     2.- Se requiere tener el CLI instalado en Windows.
-    3.- Después de configurar el pipeline.yaml y el pipelinerun.yaml hay que configuruar el repositorio local de imaagenes con el siguiente comando (con almacenamiento persistente)
+    3.- Después de configurar el pipeline.yaml y el pipelinerun.yaml hay que configuruar el repositorio local de imagenes con el siguiente comando (con almacenamiento persistente)
     4.- docker run -d -p 5000:5000 --restart=always --volume ~/.registry/storage:/var/lib/registry registry:2
     5.- Una vez que está creado el repo local la única forma de ver las imagenes pusheadas a este repo es con: curl -X GET http://localhost:5000/v2/_catalog
     6.- Para establecer la conexión y poder hacer pull del código se necesita un token de acceso a github (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)
@@ -41,7 +41,8 @@
     16.-IMPORTANTE!!: Para la ejecución del pipeline es necesario tener la tarea KANIKO instalada (kubectl apply -f https://raw.githubusercontent.com/tektoncd/catalog/main/task/kaniko/0.4/kaniko.yaml)
     17.-
     18.-
-    19.-
-    20.-
-    21.-
-    22.-
+
+Instalacion de TAKTON Dashboard
+
+kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+kubectl proxy
