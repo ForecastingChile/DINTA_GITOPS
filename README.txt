@@ -49,4 +49,4 @@ kubectl proxy
 
 IMPORTANTE:
 - Para usar GPUs en K8s, el cluster debe tener la GPU disponible como recurso.
-- 
+- test
