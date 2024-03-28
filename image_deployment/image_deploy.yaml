@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gpu-test-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gpu-test
+  template:
+    metadata:
+      labels:
+        app: gpu-test
+    spec:
+      containers:
+      - name: gpu-test-container
+        image: gpu_test
+        ports:
+        - containerPort: 8083
+        resources:
+          limits:
+            nvidia.com/gpu: 1 # Requesting 1 GPU
+      # Uncomment below if nodeSelector is needed
+      # nodeSelector:
+      #   gpu: "true"
