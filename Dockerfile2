@@ -1,0 +1,11 @@
+FROM python:3.9
+WORKDIR /code
+COPY /pip-cache/requirements.txt /code/requirements.txt
+USER root
+#Copy the bhost machine's pip cache into the container
+#COPY E:\Docker\gpu_v2\pip-cache /root/.cache/pip
+COPY ["pip-cache/html", "/root/.cache/pip"]
+#Instalación de requerimmientos
+RUN pip install -vvvv --cache-dir=/root/.cache/pip -r /code/requirements.txt
+COPY ./app /code/app
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8083"]

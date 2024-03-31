@@ -8,6 +8,19 @@
     Ejecutar la imagen y exponer el api en el puerto 8083
     - docker run --gpus all -it --rm -p 8083:8083 gpu_test
 
+##Para instalar en el cache
+pip install --cache-dir=/mnt/e/Docker/gpu_v2/pip-cache xformers
+
+##Para forzar la descarga de todo
+pip install --no-cache-dir --force-reinstall --cache-dir=/path/to/custom_pip_cache -r requirements.txt
+pip install --force-reinstall --cache-dir=/path/to/custom_pip_cache -r requirements.txt
+
+##Iniciar el contenedor con volumen persistente
+docker run -d --name new_container -v my_volume:/path/in/container <other-options> image_name
+
+##pip-install usando el cache del directorio
+pip install --cache-dir=/path/to/your/cache some_package
+
 ##Comandos ARGO (Instalación y ejecución)
 
 - kubectl create namespace argocd

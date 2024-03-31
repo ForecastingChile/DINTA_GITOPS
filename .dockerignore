@@ -1,0 +1,8 @@
+#/pip-cache
+#/app
+/services
+/task
+/image_deployment
+Dockerf*
+pipe*
+READ*
